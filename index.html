@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>វត្តព្រះពុទ្ធមានជ័យ - Wat Preah Puth Mean Chey</title>
+    <!-- Google Fonts: Khmer OS Muol Light & Kantumruy Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&family=Moul&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS (CDN for quick testing) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS Configuration -->
+    <style>
+        :root {
+            --saffron: #ff8c00; /* ពណ៌លឿងទុំចីវរ */
+            --gold: #d4af37;    /* ពណ៌មាស */
+            --dark-red: #8b0000;
+        }
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background-color: #fafafa;
+        }
+        .font-moul {
+            font-family: 'Moul', cursive;
+        }
+        .text-saffron { color: var(--saffron); }
+        .bg-saffron { background-color: var(--saffron); }
+        .text-gold { color: var(--gold); }
+        .bg-gold { background-color: var(--gold); }
+        
+        /* Hero Section Overlay */
+        .hero-bg {
+            /* ទីនេះលោកអ្នកអាចប្តូរ URL ទៅជារូបភាពព្រះវិហារពិតប្រាកដរបស់វត្តបាន */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1600493863486-2a816358dbbe?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Marquee Animation for Notice Bar */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            background-color: var(--dark-red);
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        .marquee-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 25s linear infinite;
+        }
+        @keyframes marquee {
+            0%   { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+        
+        /* Sticky Navigation */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800" data-server-no-reload>
+
+    <!-- 1. Notice Bar (Marquee) -->
+    <div class="marquee-container text-sm md:text-base border-b-4 border-yellow-500">
+        <span class="font-bold px-4 bg-red-800 z-10 absolute left-0 h-full flex items-center shadow-[5px_0_10px_rgba(0,0,0,0.5)]">
+            <i class="fas fa-bell text-yellow-400 mr-2"></i> ដំណឹងបន្ទាន់៖
+        </span>
+        <span class="marquee-text">
+            សូមគោរពអញ្ជើញពុទ្ធបរិស័ទជិតឆ្ងាយ ចូលរួមចាប់មគ្គផលក្នុងពិធីបុណ្យកឋិនទានមហាសាមគ្គី ក្រោមអធិបតីភាព ឯកឧត្តម គីម រិទ្ធី អភិបាលខេត្តព្រះវិហារ ដែលនឹងប្រព្រឹត្តទៅនៅថ្ងៃទី ០៧ ដល់ ទី ០៨ ខែវិច្ឆិកា ឆ្នាំ២០២៦ សូមអនុមោទនា!
+        </span>
+    </div>
+
+    <!-- 2. Header & Navigation -->
+    <header class="bg-white sticky-nav">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo & Title -->
+            <div class="flex items-center space-x-3 cursor-pointer">
+                <!-- និមិត្តសញ្ញាធម្មចក្រ (ជំនួស Logo វត្ត) -->
+                <i class="fas fa-dharmachakra text-4xl text-saffron animate-[spin_15s_linear_infinite]"></i>
+                <div>
+                    <h1 class="font-moul text-xl md:text-2xl text-saffron">វត្តព្រះពុទ្ធមានជ័យ</h1>
+                    <p class="text-xs md:text-sm text-gray-500 font-bold tracking-wider">Wat Preah Puth Mean Chey</p>
+                </div>
+            </div>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex space-x-6 lg:space-x-8 font-bold">
+                <a href="#" class="text-saffron border-b-2 border-saffron pb-1">ទំព័រដើម</a>
+                <a href="#" class="hover:text-saffron transition">អំពីវត្ត</a>
+                <a href="#" class="hover:text-saffron transition">កម្មវិធីបុណ្យ</a>
+                <a href="#" class="hover:text-saffron transition">ក្រាំងមាសសប្បុរសជន</a>
+                <a href="#" class="hover:text-saffron transition">បណ្ណាល័យធម៌</a>
+            </nav>
+
+            <!-- Sign In & Mobile Menu Button -->
+            <div class="flex items-center space-x-4">
+                <button class="hidden md:flex items-center text-sm font-bold border-2 border-saffron text-saffron px-4 py-2 rounded-full hover:bg-saffron hover:text-white transition">
+                    <i class="fas fa-user-circle mr-2"></i> ចូលគណនី
+                </button>
+                <button class="md:hidden text-2xl text-saffron">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. Hero Section (Banner) -->
+    <section class="hero-bg h-[70vh] flex items-center justify-center text-center px-4">
+        <div class="text-white max-w-4xl">
+            <h2 class="font-moul text-3xl md:text-5xl lg:text-6xl mb-6 text-gold drop-shadow-lg leading-tight">
+                សូមស្វាគមន៍មកកាន់<br>គេហទំព័រផ្លូវការ វត្តព្រះពុទ្ធមានជ័យ
+            </h2>
+            <p class="text-lg md:text-xl mb-10 text-gray-200 drop-shadow-md">
+                ស្ពានភ្ជាប់សទ្ធាពុទ្ធបរិស័ទគ្រប់ទិសទី ផ្សព្វផ្សាយព្រះធម៌ និងបង្ហាញតម្លាភាពក្នុងការសាងសង់ទីអារាម។
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <!-- ប៊ូតុង QR Code -->
+                <a href="#donate-section" class="bg-gold text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:bg-yellow-600 transition flex items-center transform hover:scale-105">
+                    <i class="fas fa-qrcode mr-3 text-2xl"></i> ចូលរួមបរិច្ចាគ (QR Code)
+                </a>
+                <!-- ប៊ូតុងផែនទី -->
+                <a href="#mapsite" class="bg-white text-saffron font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:bg-gray-100 transition flex items-center">
+                    <i class="fas fa-map-marker-alt mr-3 text-xl"></i> ស្វែងរកទីតាំងវត្ត
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Highlight Event (បុណ្យកឋិនទាន ឆ្នាំ២០២៦) -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="border-4 border-yellow-500 rounded-3xl p-6 md:p-10 shadow-2xl relative overflow-hidden bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+                <!-- Decorative Corner Element -->
+                <div class="absolute top-0 right-0 bg-yellow-500 text-white font-bold px-6 py-2 rounded-bl-3xl shadow-md text-sm md:text-base">
+                    ព្រឹត្តិការណ៍ប្រចាំឆ្នាំ ២០២៦
+                </div>
+                
+                <div class="text-center mb-8">
+                    <i class="fas fa-praying-hands text-5xl text-saffron mb-4 animate-pulse"></i>
+                    <h2 class="font-moul text-2xl md:text-4xl text-saffron mb-4">កម្មវិធីបុណ្យកឋិនទានមហាសាមគ្គី</h2>
+                    <p class="text-gray-600 text-lg">ក្រោមអធិបតីភាពដ៏ខ្ពង់ខ្ពស់ <strong>ឯកឧត្តម គីម រិទ្ធី</strong> អភិបាលនៃគណៈអភិបាលខេត្តព្រះវិហារ</p>
+                </div>
+
+                <!-- Schedule Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse bg-white shadow-sm rounded-xl overflow-hidden">
+                        <thead>
+                            <tr class="bg-saffron text-white">
+                                <th class="py-4 px-6 font-moul text-lg">កាលបរិច្ឆេទ</th>
+                                <th class="py-4 px-6 font-moul text-lg">ពេលវេលា</th>
+                                <th class="py-4 px-6 font-moul text-lg">កម្មវិធីលម្អិត</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-orange-50 transition">
+                                <td class="py-4 px-6 font-bold whitespace-nowrap text-orange-800" rowspan="2">សៅរ៍ ទី០៧ វិច្ឆិកា ២០២៦</td>
+                                <td class="py-4 px-6 text-red-600 font-bold">៤:៣០ រសៀល</td>
+                                <td class="py-4 px-6"><strong>ពិធីក្រុងពាលី</strong> បើកកិច្ចកម្មវិធីបុណ្យ</td>
+                            </tr>
+                            <tr class="hover:bg-orange-50 transition">
+                                <td class="py-4 px-6">ល្ងាច</td>
+                                <td class="py-4 px-6">ជួបជុំពុទ្ធបរិស័ទ នមស្ការព្រះរតនត្រ័យ សមាទានសីល ចម្រើនព្រះបរិត្ត និងធម្មទេសនា</td>
+                            </tr>
+                            <tr class="hover:bg-orange-50 transition">
+                                <td class="py-4 px-6 font-bold whitespace-nowrap text-orange-800">អាទិត្យ ទី០៨ វិច្ឆិកា ២០២៦</td>
+                                <td class="py-4 px-6">ព្រឹក</td>
+                                <td class="py-4 px-6">ដង្ហែអង្គកឋិនទានប្រទក្សិណជុំវិញព្រះវិហារ វេរប្រគេនព្រះសង្ឃ និងឆ្លងជាកិច្ចបង្ហើយបុណ្យ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <a href="#" class="inline-block border-2 border-saffron text-saffron font-bold py-2 px-6 rounded-full hover:bg-saffron hover:text-white transition">
+                        មើលកម្មវិធីបុណ្យផ្សេងៗទៀត <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. QR Code Donation Section -->
+    <section id="donate-section" class="py-16 bg-orange-50">
+        <div class="container mx-auto px-4 text-center max-w-4xl">
+            <h2 class="font-moul text-3xl text-saffron mb-4">ចូលរួមបរិច្ចាគតាមប្រព័ន្ធធនាគារ</h2>
+            <p class="text-gray-600 mb-10 text-lg">រាល់ការបរិច្ចាគនឹងត្រូវបានកត់ត្រាចូលក្នុង <strong>"ក្រាំងមាសសប្បុរសជន"</strong> ដោយស្វ័យប្រវត្តិ។</p>
+            
+            <div class="bg-white p-8 rounded-3xl shadow-xl inline-block w-full md:w-auto">
+                <div class="flex flex-col md:flex-row items-center justify-center md:space-x-12 space-y-8 md:space-y-0">
+                    <!-- QR Image Placeholder -->
+                    <div class="bg-gray-100 p-4 rounded-xl border-2 border-dashed border-gray-300 w-64 h-64 flex flex-col items-center justify-center relative">
+                        <i class="fas fa-qrcode text-6xl text-gray-400 mb-2"></i>
+                        <span class="text-sm text-gray-500 font-bold">ដាក់រូប QR Code ABA នៅទីនេះ</span>
+                        <!-- Fake scan line animation -->
+                        <div class="absolute top-0 left-0 w-full h-1 bg-red-500 opacity-50 animate-[scan_2s_ease-in-out_infinite]"></div>
+                    </div>
+                    
+                    <!-- Bank Details -->
+                    <div class="text-left max-w-xs">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/ABA_Bank_logo.svg/512px-ABA_Bank_logo.svg.png" alt="ABA Bank" class="h-10 mb-4 object-contain mx-auto md:mx-0">
+                        <p class="text-gray-500 text-sm mb-1">ឈ្មោះគណនីផ្លូវការ៖</p>
+                        <p class="font-bold text-xl mb-4 text-gray-800">WAT PREAH PUTH MEAN CHEY</p>
+                        <p class="text-gray-500 text-sm mb-1">លេខគណនី៖</p>
+                        <p class="font-bold text-2xl text-saffron tracking-widest mb-6">001 234 567</p>
+                        
+                        <!-- Confirmation Buttons -->
+                        <p class="text-xs text-gray-400 mb-2 font-bold"><i class="fas fa-info-circle"></i> ផ្ញើវិក្កយបត្រដើម្បីកត់ត្រាចូលក្រាំងមាស៖</p>
+                        <div class="flex space-x-2">
+                            <a href="#" class="flex-1 bg-[#0088cc] text-white py-2 px-4 rounded-lg flex items-center justify-center hover:bg-blue-600 transition shadow">
+                                <i class="fab fa-telegram-plane mr-2 text-xl"></i> Telegram
+                            </a>
+                            <a href="#" class="flex-1 bg-[#006AFF] text-white py-2 px-4 rounded-lg flex items-center justify-center hover:bg-blue-700 transition shadow">
+                                <i class="fab fa-facebook-messenger mr-2 text-xl"></i> Messenger
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Map & Contact Section -->
+    <section id="mapsite" class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="font-moul text-3xl text-saffron mb-10 text-center">ទីតាំងវត្ត និង ទំនាក់ទំនង</h2>
+            
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Google Maps Embedded -->
+                <div class="lg:w-2/3 h-96 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-2 border-gray-100">
+                    <!-- នេះជាកូដ Map ឧទាហរណ៍ទីតាំងខេត្តព្រះវិហារ។ លោកអ្នកត្រូវយកកូដ Embed ពី Google Maps ពិតប្រាកដមកដាក់ជំនួស -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124233.1504938676!2d104.89679269999999!3d13.7885066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311394bc435cb8c7%3A0xe40639906649fec9!2sKrong%20Preah%20Vihear!5e0!3m2!1sen!2skh!4v1700000000000!5m2!1sen!2skh" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <!-- Contact Info Card -->
+                <div class="lg:w-1/3 bg-white p-8 rounded-2xl shadow-lg border-t-4 border-saffron flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-moul text-xl mb-6 text-gray-800">អាសយដ្ឋានបច្ចុប្បន្ន</h3>
+                        <ul class="space-y-4 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-3 text-saffron"></i>
+                                <span>ភូមិ[ឈ្មោះភូមិ] ឃុំ[ឈ្មោះឃុំ] ក្រុងព្រះវិហារ ខេត្តព្រះវិហារ។</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-phone-alt mr-3 text-saffron"></i>
+                                <span>(+855) 12 345 678 (គណៈកម្មការវត្ត)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope mr-3 text-saffron"></i>
+                                <span>info@watpreahputhmeanchey.org</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <a href="https://maps.google.com/?q=Krong+Preah+Vihear" target="_blank" class="w-full bg-saffron text-white font-bold py-3 rounded-xl flex items-center justify-center hover:bg-orange-600 transition shadow-md">
+                            <i class="fas fa-directions mr-2"></i> ស្វែងរកផ្លូវ (Get Directions)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Footer & Visitor Statistics -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6 border-t-4 border-gold">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
+                <!-- Info -->
+                <div>
+                    <h3 class="font-moul text-gold text-lg mb-4">វត្តព្រះពុទ្ធមានជ័យ</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        រក្សាសិទ្ធិគ្រប់យ៉ាងដោយគណៈកម្មការវត្ត។ គេហទំព័រនេះបង្កើតឡើងដើម្បីផ្សព្វផ្សាយព្រះធម៌ និងរក្សាតម្លាភាពក្នុងការសាងសង់។
+                    </p>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-blue-500 hover:bg-blue-500 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-red-500 hover:bg-red-500 hover:text-white transition"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-blue-400 hover:bg-blue-400 hover:text-white transition"><i class="fab fa-telegram-plane"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-bold text-gray-200 text-lg mb-4 border-b border-gray-700 pb-2 inline-block">តំណភ្ជាប់រហ័ស</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-gold transition"><i class="fas fa-angle-right mr-2 text-xs"></i>អំពីប្រវត្តិវត្ត</a></li>
+                        <li><a href="#" class="hover:text-gold transition"><i class="fas fa-angle-right mr-2 text-xs"></i>ស្ថិតិព្រះសង្ឃ</a></li>
+                        <li><a href="#" class="hover:text-gold transition"><i class="fas fa-angle-right mr-2 text-xs"></i>រចនាសម្ព័ន្ធគណៈធម្មយុត្តិកនិកាយ</a></li>
+                        <li><a href="#" class="hover:text-gold transition"><i class="fas fa-angle-right mr-2 text-xs"></i>ចុះឈ្មោះសមាជិក (Sign Up)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Visitor Stats Panel -->
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-inner">
+                    <h3 class="font-bold text-gold text-lg mb-4 flex items-center justify-center md:justify-start">
+                        <i class="fas fa-chart-line mr-2"></i> ស្ថិតិអ្នកចូលទស្សនា
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="bg-gray-900 p-3 rounded-lg text-center">
+                            <p class="text-gray-400 mb-1">ថ្ងៃនេះ</p>
+                            <p class="font-bold text-xl text-white">១២៨</p>
+                        </div>
+                        <div class="bg-gray-900 p-3 rounded-lg text-center">
+                            <p class="text-gray-400 mb-1">សប្តាហ៍នេះ</p>
+                            <p class="font-bold text-xl text-white">៨៤៥</p>
+                        </div>
+                        <div class="bg-gray-900 p-3 rounded-lg text-center">
+                            <p class="text-gray-400 mb-1">ខែនេះ</p>
+                            <p class="font-bold text-xl text-white">៣,២៥០</p>
+                        </div>
+                        <div class="bg-gray-900 p-3 rounded-lg text-center relative overflow-hidden group">
+                            <p class="text-gray-400 mb-1 relative z-10">កំពុងអនឡាញ</p>
+                            <p class="font-bold text-xl text-green-400 relative z-10 flex items-center justify-center">
+                                <span class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-ping"></span> ១២
+                            </p>
+                            <!-- Pulse effect background -->
+                            <div class="absolute inset-0 bg-green-900 opacity-20 group-hover:opacity-40 transition"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-4 pt-6 text-center text-xs text-gray-500 flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; ២០២៦ វត្តព្រះពុទ្ធមានជ័យ. រក្សាសិទ្ធិគ្រប់យ៉ាង.</p>
+                <p class="mt-2 md:mt-0">អភិវឌ្ឍន៍ដោយសទ្ធាជ្រះថ្លា</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Style for Scan Line Animation -->
+    <style>
+        @keyframes scan {
+            0% { top: 0; }
+            50% { top: 100%; }
+            100% { top: 0; }
+        }
+    </style>
+</body>
+</html>
